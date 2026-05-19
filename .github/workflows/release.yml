@@ -24,8 +24,17 @@ jobs:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 
-  publish:
+  quality-gates:
     needs: release-please
+    if: needs.release-please.outputs.release_created == 'true'
+    uses: ./.github/workflows/quality-gates.yml
+    with:
+      node-version: "20"
+
+  publish:
+    needs:
+      - release-please
+      - quality-gates
     if: needs.release-please.outputs.release_created == 'true'
     runs-on: ubuntu-latest
     steps:
@@ -39,8 +48,6 @@ jobs:
           scope: "@telepat-io"
 
       - run: npm ci
-
-      - run: npm run lint
 
       - run: npm run build
 
