@@ -1,0 +1,22 @@
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.chip {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font: 300 12px/1 var(--font-display);
+  color: rgba(255, 255, 255, 0.82);
+  background: transparent;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+.chip:hover { border-color: rgba(255, 255, 255, 0.36); }
+.chip:focus-visible {
+  outline: 2px solid var(--color-quote-violet);
+  outline-offset: 2px;
+}
+.chip.on {
+  background: var(--color-brand-violet);
+  border-color: var(--color-brand-violet);
+  color: #fff;
+}

@@ -1,0 +1,21 @@
+.link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--color-quote-violet);
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--fs-meta);
+  letter-spacing: var(--tracking-wordmark);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 200ms ease;
+}
+.link:hover { color: #C5BAFF; }
+.link:hover .chev { transform: translateY(2px); }
+.text { line-height: 1; }
+.chev {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}

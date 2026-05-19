@@ -1,0 +1,69 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css"><title>Logo variants</title>
+<style>
+  body { padding: 0; }
+  .panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 700px;
+    height: 340px;
+  }
+  .panel {
+    display: flex; align-items: center; justify-content: center;
+    gap: 14px;
+    position: relative;
+  }
+  .panel .swatch-label {
+    position: absolute; left: 14px; bottom: 10px;
+    font: 500 9px/1 var(--font-ui);
+    letter-spacing: 0.10em; text-transform: uppercase;
+  }
+  .panel .mark { height: 56px; width: auto; display: block; }
+  .panel .wm   { height: 26px; width: auto; display: block; }
+</style>
+</head>
+<body>
+<div class="panels">
+
+  <!-- On pure black: white logomark + white wordmark -->
+  <div class="panel" style="background: #000;">
+    <img class="mark" src="../assets/logo-mark-white.svg" alt="">
+    <img class="wm"   src="../assets/logo-wordmark-white.svg" alt="">
+    <span class="swatch-label" style="color: rgba(255,255,255,0.45);">On black · solid white</span>
+  </div>
+
+  <!-- On pure white: gradient mark + black wordmark -->
+  <div class="panel" style="background: #FFFFFF;">
+    <img class="mark" src="../assets/logo-mark-gradient-baked.svg" alt="">
+    <img class="wm"   src="../assets/logo-wordmark-black.svg" alt="">
+    <span class="swatch-label" style="color: rgba(0,0,0,0.45);">On white · gradient + black</span>
+  </div>
+
+  <!-- On deep purple-black: gradient mark + white wordmark (the actual brand lockup) -->
+  <div class="panel" style="background: linear-gradient(135deg, #1A0F3D 0%, #0D0A19 60%, #1F0E2E 100%);">
+    <img class="mark" src="../assets/logo-mark-gradient-baked.svg" alt="">
+    <img class="wm"   src="../assets/logo-wordmark-white.svg" alt="">
+    <span class="swatch-label" style="color: rgba(255,255,255,0.55);">On purple-black · brand lockup</span>
+  </div>
+
+  <!-- Mono purple — solid soft-violet for muted contexts (e.g. footer hover) -->
+  <div class="panel" style="background: #000;">
+    <div style="height: 56px; width: 52px;
+                background-color: #AEA1FF;
+                -webkit-mask-image: url('../assets/logo-mark-white.svg');
+                mask-image: url('../assets/logo-mark-white.svg');
+                -webkit-mask-size: contain; mask-size: contain;
+                -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+                -webkit-mask-position: center; mask-position: center;"></div>
+    <div style="height: 26px; width: 70px;
+                background-color: #AEA1FF;
+                -webkit-mask-image: url('../assets/logo-wordmark-white.svg');
+                mask-image: url('../assets/logo-wordmark-white.svg');
+                -webkit-mask-size: contain; mask-size: contain;
+                -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+                -webkit-mask-position: center; mask-position: center;"></div>
+    <span class="swatch-label" style="color: rgba(255,255,255,0.45);">Mono · soft violet on black</span>
+  </div>
+
+</div>
+</body></html>

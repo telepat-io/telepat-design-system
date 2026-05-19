@@ -1,0 +1,35 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_forms.css"><title>Text fields</title></head>
+<body>
+<div class="specimen">
+
+  <div class="field">
+    <span class="field-label">Name</span>
+    <input class="input" value="Soumya Ranjan">
+  </div>
+
+  <div class="field">
+    <span class="field-label">Email <span class="req">*</span></span>
+    <div class="input-wrap">
+      <span class="icon-left">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7 L12 13 L21 7"/></svg>
+      </span>
+      <input class="input with-icon" placeholder="you@company.com">
+    </div>
+  </div>
+
+  <div class="field">
+    <span class="field-label">Password</span>
+    <input class="input error" type="password" value="abc">
+    <span class="hint err">Must be at least 8 characters</span>
+  </div>
+
+  <div class="field">
+    <span class="field-label">Budget</span>
+    <div class="input-wrap">
+      <input class="input" value="50,000">
+      <span class="suffix">USD</span>
+    </div>
+  </div>
+
+</div>
+</body></html>

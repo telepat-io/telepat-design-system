@@ -1,0 +1,31 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Introduction" />
+
+# Telepat Design System
+
+A pixel-faithful React implementation of the Telepat brand — dark-first, paired-glow atmospheric design, Poppins body, Montserrat Alt1 wordmark.
+
+## How to use this Storybook
+
+- **Foundations** — colors, typography, spacing, brand assets.
+- **Atoms** — primitives: buttons, inputs, toggles, chips, logo, links.
+- **Molecules** — composed pieces: nav, footer, testimonial card, service card, client grid.
+- **Sections** — page-level templates: Hero, Services, Customers, Vision, Contact, plus a *Full Page* story stitching them together.
+
+## Consuming the library
+
+```tsx
+import "telepat-design-system/styles.css";
+import { Button, TextInput, Nav } from "telepat-design-system";
+import { Hero, ContactSection } from "telepat-design-system/sections";
+```
+
+Section imports are split into a separate entry point so apps that only need atoms don't pull in the bundled section imagery.
+
+## Brand principles
+
+- **Dark-first.** Surfaces default to `#000` or `#14102B` deep purple-black.
+- **Paired radial glow.** Every dark surface carries a translucent blue disk top-right and a magenta disk bottom-left. Composable via `<GlowBackground />`.
+- **No emoji, no exclamation marks, no shadows.** Atmospheric depth comes from glow + `mix-blend-mode: lighten`.
+- **Type.** Poppins Light (300) is the default weight; Italic is reserved for vision/quote copy. Wordmark is Montserrat Alt1 Medium with `+0.080em` tracking.

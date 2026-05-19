@@ -1,0 +1,21 @@
+.root {
+  position: relative;
+  width: 100%;
+  padding: 20px 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 5;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+.links {
+  display: flex;
+  gap: 56px;
+  align-items: center;
+}

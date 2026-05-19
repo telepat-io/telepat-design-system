@@ -1,0 +1,27 @@
+.zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  border: 1.5px dashed rgba(255, 255, 255, 0.32);
+  border-radius: var(--radius-input);
+  padding: 22px 14px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.18);
+  color: rgba(255, 255, 255, 0.66);
+  cursor: pointer;
+  font: inherit;
+  transition: all 180ms ease;
+}
+.zone:hover,
+.zone.hover {
+  border-color: var(--color-quote-violet);
+  background: rgba(174, 161, 255, 0.06);
+}
+.zone:focus-visible {
+  outline: 2px solid var(--color-quote-violet);
+  outline-offset: 2px;
+}
+.label { font: 300 13px/18px var(--font-display); color: rgba(255, 255, 255, 0.66); }
+.sub { font: 300 11px/14px var(--font-display); color: rgba(255, 255, 255, 0.42); }

@@ -1,0 +1,49 @@
+.section {
+  position: relative;
+  width: 100%;
+  height: 812px;
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1600px;
+  height: 984px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.eclipse {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 621px;
+  height: 621px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.88);
+}
+.copy {
+  position: relative;
+  width: 700px;
+  max-width: 92%;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  text-align: center;
+}
+.line {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 38px;
+  margin: 0;
+  text-wrap: balance;
+}

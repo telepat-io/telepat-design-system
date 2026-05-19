@@ -1,0 +1,14 @@
+.link {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--fs-meta);
+  letter-spacing: var(--tracking-section);
+  color: var(--color-fg);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+.link:hover { color: var(--color-quote-violet); }
+.active { color: var(--color-quote-violet); }
+.light { color: var(--color-fg-invert); }
+.light:hover { color: var(--color-brand-violet); }
+.light.active { color: var(--color-brand-violet); }

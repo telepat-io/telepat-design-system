@@ -1,0 +1,45 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_forms.css"><title>Choice controls</title></head>
+<body>
+<div class="specimen">
+
+  <div class="field">
+    <span class="field-label">Project scale</span>
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <label class="radio"><input type="radio" name="scale" checked><span class="rd-box"></span>Proof of concept</label>
+      <label class="radio"><input type="radio" name="scale"><span class="rd-box"></span>Production rollout</label>
+      <label class="radio"><input type="radio" name="scale"><span class="rd-box"></span>Long-term partnership</label>
+    </div>
+  </div>
+
+  <div class="field">
+    <span class="field-label">Capabilities needed</span>
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <label class="checkbox">
+        <input type="checkbox" checked>
+        <span class="cb-box"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4.5 L4 7.5 L10 1.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        Strategy &amp; discovery
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" checked>
+        <span class="cb-box"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4.5 L4 7.5 L10 1.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        Mobile / web build
+      </label>
+      <label class="checkbox">
+        <input type="checkbox">
+        <span class="cb-box"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4.5 L4 7.5 L10 1.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        Security audit
+      </label>
+    </div>
+  </div>
+
+  <div class="field full">
+    <span class="field-label">Hosting</span>
+    <div class="segmented">
+      <input type="radio" name="host" id="h1" checked><label for="h1">Cloud</label>
+      <input type="radio" name="host" id="h2"><label for="h2">On-prem</label>
+      <input type="radio" name="host" id="h3"><label for="h3">Hybrid</label>
+    </div>
+  </div>
+
+</div>
+</body></html>

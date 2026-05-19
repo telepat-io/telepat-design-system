@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Telepat — Pitch Deck</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  :root {
+    --slide-w: 1920px;
+    --slide-h: 1080px;
+  }
+  html, body { margin: 0; background: #111; overflow: hidden; font-family: var(--font-sans); }
+  section { box-sizing: border-box; }
+  /* Common deck slide chrome */
+  .slide {
+    position: relative;
+    width: var(--slide-w);
+    height: var(--slide-h);
+    overflow: hidden;
+    background: #000;
+    color: #fff;
+  }
+  .slide.split { background: #fff; }
+  .slide.split .left {
+    position: absolute; left: 0; top: 0; width: 800px; height: 100%;
+    background: #000; overflow: hidden;
+  }
+  .slide.split .right {
+    position: absolute; left: 800px; top: 0; right: 0; height: 100%;
+    color: #000;
+  }
+  /* Signature glow disks */
+  .glow-blue, .glow-pink { position: absolute; border-radius: 50%; pointer-events: none; }
+  .glow-blue { background: rgba(79,75,255,0.24); }
+  .glow-pink { background: rgba(219,75,255,0.16); }
+  /* Logo lockup top-left of every slide */
+  .logo-lockup {
+    position: absolute; left: 90px; top: 72px;
+    display: flex; align-items: center; gap: 16px;
+    color: #fff;
+  }
+  .logo-lockup img.mark { width: auto; height: 111px; }
+  .logo-lockup .wordmark {
+    font-family: var(--font-mark); font-weight: 500;
+    font-size: 60px; letter-spacing: 0.08em;
+    line-height: 1; color: #fff;
+  }
+  /* In split slides the logo sits over the left BLACK pane — always use white mark */
+  /* Footer on each slide */
+  .deck-footer {
+    position: absolute; right: 90px; bottom: 56px;
+    display: flex; gap: 56px; align-items: center;
+    font: 400 18px/28px var(--font-display);
+    letter-spacing: 0.02em;
+  }
+  .deck-footer.dark { color: #000; }
+  .deck-footer.dark a, .deck-footer.dark span { color: #000; }
+  .deck-footer .copyright { opacity: 0.6; }
+
+  /* Slide 1 / 7 — title */
+  .title-slide .hero-topo {
+    position: absolute; inset: 0;
+    background: url("../assets/hero-bg.png") center/cover no-repeat;
+    opacity: 1;
+  }
+  .title-slide .glow-blue { right: -82px; top: -480px; width: 1329px; height: 1329px; }
+  .title-slide .glow-pink { left: -276px; bottom: -480px; width: 1329px; height: 1329px; opacity: 1; }
+  .title-slide .center-text {
+    position: absolute; left: 570px; top: 360px; width: 780px;
+    display: flex; flex-direction: column; gap: 56px; text-align: center;
+  }
+  .title-slide h1 {
+    font: 300 86px/96px var(--font-display);
+    letter-spacing: 0.020em; color: #fff;
+    margin: 0; text-wrap: balance;
+  }
+  .title-slide .lede {
+    font: 300 24px/36px var(--font-display);
+    letter-spacing: 0.020em;
+    color: #E5E6FF;
+  }
+
+  /* Split slide common */
+  .split .left .glow-blue { left: 65px; top: -480px; width: 1329px; height: 1329px; }
+  .split .left .glow-pink { left: -276px; bottom: -276px; width: 894px; height: 894px; }
+  .split .left .img-wrap {
+    position: absolute; left: 100px; top: 280px; width: 600px; height: 600px;
+    overflow: hidden; border-radius: 24px;
+  }
+  .split .left .img-wrap img {
+    position: absolute; inset: -12px; width: calc(100% + 24px); height: calc(100% + 24px);
+    object-fit: cover; mix-blend-mode: lighten;
+  }
+  .split .right .text-box {
+    position: absolute; left: 120px; top: 200px; width: 880px;
+    display: flex; flex-direction: column; gap: 45px;
+  }
+  .split .right h2 {
+    font: 500 60px/75px var(--font-display);
+    letter-spacing: 0.020em; color: #000; margin: 0;
+  }
+  .split .right ul {
+    list-style: none; padding: 0; margin: 0;
+    font: 300 30px/45px var(--font-display); color: #000;
+  }
+  .split .right ul li { margin: 0; }
+
+  /* Vision + clients */
+  .vision-slide { background: #fff; }
+  .vision-slide .left {
+    position: absolute; left: 0; top: 0; width: 800px; height: 100%;
+    background: #000; overflow: hidden;
+  }
+  .vision-slide .left .magnetic-bg {
+    position: absolute; left: -277px; top: 118px; width: 1354px; height: 833px;
+    background: url("../assets/img-vision-magnetic.png") center/cover no-repeat;
+  }
+  .vision-slide .left .moon {
+    position: absolute; left: 138px; top: 241px;
+    width: 525px; height: 525px; border-radius: 50%; background: #000;
+  }
+  .vision-slide .left .glow-blue { left: 65px; top: -480px; width: 1329px; height: 1329px; }
+  .vision-slide .left .glow-pink { left: -276px; bottom: -276px; width: 894px; height: 894px; }
+  .vision-slide .left .vision-text {
+    position: absolute; left: 108px; top: 335px; width: 584px;
+    font: italic 300 41px/1 var(--font-display);
+    letter-spacing: 0.020em; text-align: center; color: #fff;
+  }
+  .vision-slide .right {
+    position: absolute; left: 800px; top: 0; right: 0; height: 100%;
+    color: #000;
+  }
+  .vision-slide .right .eyebrow {
+    position: absolute; left: 0; right: 0; top: 158px;
+    font: 400 20px/28px var(--font-display);
+    letter-spacing: 0.100em; text-transform: uppercase;
+    text-align: center; color: rgba(0,0,0,0.48);
+  }
+  .vision-slide .right .clients {
+    position: absolute; left: 120px; right: 120px; top: 260px;
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    column-gap: 80px; row-gap: 80px;
+    align-items: center; justify-items: center;
+    opacity: 0.78;
+  }
+  .vision-slide .right .clients > div {
+    color: #000; text-align: center;
+    font: 600 38px/1 var(--font-display);
+    letter-spacing: -0.01em;
+  }
+  .vision-slide .right .clients .tmobile { color: #E20074; font-weight: 700; letter-spacing: 0.06em; font-family: var(--font-mark); }
+  .vision-slide .right .clients .ms       { font-weight: 600; }
+  .vision-slide .right .clients .p7       { color: #FF0033; font-weight: 800; letter-spacing: -0.02em; }
+  .vision-slide .right .clients .viasat   { font-weight: 700; letter-spacing: 0.04em; }
+  .vision-slide .right .clients .honda    { color: #cc0000; font-weight: 800; letter-spacing: -0.04em; font-size: 44px; }
+  .vision-slide .right .clients .pd       { font-weight: 700; color: #06AC38; }
+  .vision-slide .right .clients .rh       { font-family: var(--font-mark); letter-spacing: 0.08em; font-weight: 700; font-size: 44px; }
+  .vision-slide .right .clients .eight    {
+    background: linear-gradient(#01FFF0, #29B6CA); border-radius: 14px;
+    color: #053F40; padding: 10px 28px; font-weight: 700; font-size: 32px;
+  }
+
+  /* Use-case slide */
+  .usecase-slide {
+    background: #fff;
+  }
+  .usecase-slide .heading-row {
+    position: absolute; left: 116px; right: 116px; top: 155px;
+    display: flex; gap: 80px; align-items: flex-start;
+  }
+  .usecase-slide .heading-row .eyebrow {
+    font: 700 30px/45px var(--font-display); color: #000;
+  }
+  .usecase-slide .heading-row h2 {
+    font: 300 69px/85px var(--font-display);
+    letter-spacing: 0.020em; color: #000; margin: 0; max-width: 760px;
+  }
+  .usecase-slide .heading-row p {
+    font: 300 30px/45px var(--font-display); color: #000; margin: 0; max-width: 820px;
+  }
+  .usecase-slide .grid {
+    position: absolute; left: 116px; right: 116px; top: 600px;
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 0;
+    height: 384px;
+  }
+  .usecase-slide .grid .tile {
+    overflow: hidden; background: #F6F6F6;
+  }
+  .usecase-slide .grid img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+
+  /* Use-case slide is FULL white — needs the BLACK mark */
+  .usecase-slide .logo-lockup { color: #000; }
+  .usecase-slide .logo-lockup .wordmark { color: #000; }
+
+  /* Section number watermark for variety */
+  .section-num {
+    position: absolute; right: 90px; top: 72px;
+    font: 200 86px/1 var(--font-display);
+    letter-spacing: 0.04em;
+    color: rgba(0,0,0,0.12);
+  }
+  .section-num.dark { color: rgba(255,255,255,0.20); }
+</style>
+<script src="deck-stage.js"></script>
+</head>
+<body>
+
+<deck-stage>
+
+  <!-- 1: Title -->
+  <section data-screen-label="01 Title" class="slide title-slide">
+    <div class="hero-topo"></div>
+    <div class="glow-blue"></div>
+    <div class="glow-pink"></div>
+    <div class="logo-lockup">
+      <img class="mark" src="../assets/logo-mark-white.svg" alt="">
+      <span class="wordmark">TELEPAT</span>
+    </div>
+    <div class="center-text">
+      <h1>AI-Powered Software Tailored for Innovators</h1>
+      <p class="lede">With over a decade of expertise Telepat is powering leading Silicon Valley startups and Fortune 500 companies with next gen software development.</p>
+    </div>
+  </section>
+
+  <!-- 2: AI Concepts & Software -->
+  <section data-screen-label="02 AI Concepts" class="slide split">
+    <div class="left">
+      <div class="glow-blue"></div>
+      <div class="glow-pink"></div>
+      <div class="img-wrap"><img src="../assets/img-phone.png" alt=""></div>
+    </div>
+    <div class="logo-lockup">
+      <img class="mark" src="../assets/logo-mark-white.svg" alt="">
+      <span class="wordmark">TELEPAT</span>
+    </div>
+    <div class="right">
+      <span class="section-num">02</span>
+      <div class="text-box">
+        <h2>AI Concepts &amp; Software</h2>
+        <ul>
+          <li>AI Strategy Development &amp; Use Case Identification</li>
+          <li>Mobile &amp; Web Application Development</li>
+          <li>Integration of Pre-Trained Models into existing Applications</li>
+          <li>AI Model Fine-Tuning &amp; Optimization for specific verticals</li>
+        </ul>
+      </div>
+      <div class="deck-footer dark">
+        <span>Instagram</span>
+        <span>Contact us</span>
+        <span class="copyright">© Telepat Inc 2024</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3: AI Visuals & Voice -->
+  <section data-screen-label="03 AI Visuals" class="slide split">
+    <div class="left">
+      <div class="glow-blue"></div>
+      <div class="glow-pink"></div>
+      <div class="img-wrap"><img src="../assets/img-ai-character.png" alt=""></div>
+    </div>
+    <div class="logo-lockup">
+      <img class="mark" src="../assets/logo-mark-white.svg" alt="">
+      <span class="wordmark">TELEPAT</span>
+    </div>
+    <div class="right">
+      <span class="section-num">03</span>
+      <div class="text-box">
+        <h2>AI Visuals &amp; Voice</h2>
+        <ul>
+          <li>AI Product and e-Com Photography</li>
+          <li>AI-Generated Video Animations and Commercials</li>
+          <li>Autonomous, lifelike Virtual Personas for Social Media engagement</li>
+          <li>Speech Recognition and Synthesis</li>
+        </ul>
+      </div>
+      <div class="deck-footer dark">
+        <span>Instagram</span>
+        <span>Contact us</span>
+        <span class="copyright">© Telepat Inc 2024</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4: Security & Infrastructure -->
+  <section data-screen-label="04 Security" class="slide split">
+    <div class="left">
+      <div class="glow-blue"></div>
+      <div class="glow-pink"></div>
+      <div class="img-wrap"><img src="../assets/img-security.png" alt=""></div>
+    </div>
+    <div class="logo-lockup">
+      <img class="mark" src="../assets/logo-mark-white.svg" alt="">
+      <span class="wordmark">TELEPAT</span>
+    </div>
+    <div class="right">
+      <span class="section-num">04</span>
+      <div class="text-box">
+        <h2>Security &amp; Infrastructure<br>for AI software</h2>
+        <ul>
+          <li>AI Model Security Audits &amp; Implementation of Security Solutions</li>
+          <li>AI Compliance with AI Regulations &amp; Data Security Standards</li>
+          <li>Cloud Infrastructure Setup &amp; AI Model Hosting Management</li>
+          <li>Cloud-Based AI Solution Deployment</li>
+        </ul>
+      </div>
+      <div class="deck-footer dark">
+        <span>Instagram</span>
+        <span>Contact us</span>
+        <span class="copyright">© Telepat Inc 2024</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5: Vision + Selected Clients -->
+  <section data-screen-label="05 Vision" class="slide vision-slide">
+    <div class="left">
+      <div class="magnetic-bg"></div>
+      <div class="moon"></div>
+      <div class="glow-blue"></div>
+      <div class="glow-pink"></div>
+      <div class="vision-text">Our vision is to create innovative solutions that not only drive technological progress but also promote environmental stewardship and social responsibility.</div>
+    </div>
+    <div class="logo-lockup">
+      <img class="mark" src="../assets/logo-mark-white.svg" alt="">
+      <span class="wordmark">TELEPAT</span>
+    </div>
+    <div class="right">
+      <div class="eyebrow">SELECTED CLIENTS</div>
+      <div class="clients">
+        <div class="tmobile">T···Mobile</div>
+        <div class="ms">Microsoft</div>
+        <div class="p7"><span style="color:#FF0033">7</span>&nbsp;ProSiebenSat.1</div>
+        <div class="viasat">VIASAT</div>
+        <div class="rh">RH</div>
+        <div class="pd">PagerDuty</div>
+        <div class="honda">HONDA</div>
+        <div class="eight">eightTV</div>
+      </div>
+      <div class="deck-footer dark">
+        <span>Instagram</span>
+        <span>Contact us</span>
+        <span class="copyright">© Telepat Inc 2024</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6: Use-case — Digitally tailored collections (FULL WHITE slide) -->
+  <section data-screen-label="06 Use Case" class="slide usecase-slide">
+    <div class="logo-lockup">
+      <img class="mark" src="../assets/logo-mark-black.svg" alt="">
+      <span class="wordmark">TELEPAT</span>
+    </div>
+    <span class="section-num">06</span>
+    <div class="heading-row">
+      <div style="flex: 1; display: flex; flex-direction: column; gap: 16px;">
+        <div class="eyebrow">Use Case Example — AI Visuals</div>
+        <h2>Digitally tailored collections</h2>
+      </div>
+      <div style="flex: 1;">
+        <p>We enable brands and designers to create stunning virtual photoshoots effortlessly and for a fraction of current costs and production times. A single photo is enough for superior results.</p>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="tile"><img src="../assets/usecase-photo-1-before.jpg" alt=""></div>
+      <div class="tile"><img src="../assets/usecase-photo-1-after.png" alt=""></div>
+      <div class="tile"><img src="../assets/usecase-photo-2-before.jpg" alt=""></div>
+      <div class="tile"><img src="../assets/usecase-photo-2-after.png" alt=""></div>
+      <div class="tile"><img src="../assets/usecase-photo-3-before.jpg" alt=""></div>
+      <div class="tile"><img src="../assets/usecase-photo-3-after.png" alt=""></div>
+    </div>
+    <div class="deck-footer dark">
+      <span>Instagram</span>
+      <span>Contact us</span>
+      <span class="copyright">© Telepat Inc 2024</span>
+    </div>
+  </section>
+
+  <!-- 7: Closing — title returns -->
+  <section data-screen-label="07 Closing" class="slide title-slide">
+    <div class="hero-topo"></div>
+    <div class="glow-blue"></div>
+    <div class="glow-pink"></div>
+    <div class="logo-lockup">
+      <img class="mark" src="../assets/logo-mark-white.svg" alt="">
+      <span class="wordmark">TELEPAT</span>
+    </div>
+    <div class="center-text">
+      <h1>Let's build what's next.</h1>
+      <p class="lede">hello@telepat.io  ·  telepat.io</p>
+    </div>
+  </section>
+
+</deck-stage>
+
+</body>
+</html>

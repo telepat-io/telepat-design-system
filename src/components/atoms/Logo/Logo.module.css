@@ -1,0 +1,28 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.lockup {
+  gap: 14px;
+}
+.divider {
+  display: inline-block;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+.maskMark,
+.maskWord {
+  display: inline-block;
+  background-color: var(--color-quote-violet);
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+.maskMark { -webkit-mask-image: url("../../../assets/logo-mark-white.svg"); mask-image: url("../../../assets/logo-mark-white.svg"); }
+.maskWord { -webkit-mask-image: url("../../../assets/logo-wordmark-white.svg"); mask-image: url("../../../assets/logo-wordmark-white.svg"); }

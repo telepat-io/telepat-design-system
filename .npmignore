@@ -1,0 +1,8 @@
+src/
+.storybook/
+storybook-static/
+node_modules/
+*.log
+tsconfig*.json
+vite.config.ts
+.gitignore

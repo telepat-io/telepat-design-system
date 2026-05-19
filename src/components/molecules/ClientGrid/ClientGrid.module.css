@@ -1,0 +1,16 @@
+.grid {
+  width: 880px;
+  max-width: 100%;
+  display: grid;
+  grid-auto-rows: 60px;
+  column-gap: 40px;
+  row-gap: 40px;
+}
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  font-family: var(--font-display);
+}

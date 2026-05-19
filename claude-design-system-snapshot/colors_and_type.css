@@ -1,0 +1,295 @@
+/* ============================================================
+ * Telepat Design System — Colors & Type
+ * Source: telepat-LP.fig (Page-1 Landing, Page-2 Deck, Page-3 alt title)
+ * ============================================================ */
+
+/* ---------- Fonts ----------
+ * Primary face is Poppins (Light/Regular/Medium/SemiBold/Bold + Italic).
+ * The TELEPAT wordmark uses Montserrat-Alt1 Medium, now loaded locally
+ * from fonts/ (the user supplied the full weight family).
+ * Inter is used only by the browser-chrome mock (URL bar / tabs).
+ * --------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@400;500;600;700&display=swap");
+
+@font-face { font-family: "Montserrat Alt1"; font-weight: 100; font-style: normal; src: url("fonts/MontserratAlt1-Thin.ttf")        format("truetype"); font-display: swap; }
+@font-face { font-family: "Montserrat Alt1"; font-weight: 200; font-style: normal; src: url("fonts/MontserratAlt1-ExtraLight.ttf")  format("truetype"); font-display: swap; }
+@font-face { font-family: "Montserrat Alt1"; font-weight: 300; font-style: normal; src: url("fonts/MontserratAlt1-Light.ttf")       format("truetype"); font-display: swap; }
+@font-face { font-family: "Montserrat Alt1"; font-weight: 400; font-style: normal; src: url("fonts/MontserratAlt1-Regular.ttf")     format("truetype"); font-display: swap; }
+@font-face { font-family: "Montserrat Alt1"; font-weight: 500; font-style: normal; src: url("fonts/MontserratAlt1-Medium.ttf")      format("truetype"); font-display: swap; }
+@font-face { font-family: "Montserrat Alt1"; font-weight: 600; font-style: normal; src: url("fonts/MontserratAlt1-SemiBold.ttf")    format("truetype"); font-display: swap; }
+@font-face { font-family: "Montserrat Alt1"; font-weight: 700; font-style: normal; src: url("fonts/MontserratAlt1-Bold.ttf")        format("truetype"); font-display: swap; }
+@font-face { font-family: "Montserrat Alt1"; font-weight: 800; font-style: normal; src: url("fonts/MontserratAlt1-ExtraBold.ttf")   format("truetype"); font-display: swap; }
+@font-face { font-family: "Montserrat Alt1"; font-weight: 900; font-style: normal; src: url("fonts/MontserratAlt1-Black.ttf")       format("truetype"); font-display: swap; }
+
+:root {
+  /* ---------------- BASE PALETTE ---------------- */
+  /* Surfaces (always-dark by default — site & deck both live on black) */
+  --color-bg:            #000000;            /* hero, deck title */
+  --color-bg-deep:       #14102B;            /* services section, deep purple-black */
+  --color-bg-elevated:   #221949;            /* cards on dark */
+  --color-bg-light:      #FFFFFF;            /* deck right pane, contact form variants */
+  --color-bg-light-soft: #F6F6F6;            /* photo tile backdrop */
+
+  /* Ink */
+  --color-fg:            #FFFFFF;            /* primary text on dark */
+  --color-fg-dim:        rgba(255,255,255,0.88); /* body on dark */
+  --color-fg-muted:      rgba(255,255,255,0.56); /* "Aug 27" style dim text */
+  --color-fg-quiet:      rgba(255,255,255,0.8);  /* form helper */
+  --color-fg-invert:     #000000;            /* text on light bg */
+  --color-fg-invert-q:   rgba(0,0,0,0.48);   /* label on light */
+
+  /* Brand — the "electric haze" gradient pair drives every glow */
+  --color-brand-blue:    #4F4BFF;            /* hero left blur */
+  --color-brand-blue-2:  #464FFF;
+  --color-brand-violet:  #5A3ECC;            /* Send CTA, contact button */
+  --color-brand-pink:    #DB4BFF;            /* hero right blur */
+  --color-brand-magenta: #FD30E3;            /* sharp pop accent */
+  --color-brand-hot:     #ED008C;            /* logomark gradient end */
+  --color-brand-hot-2:   #E11E8D;
+
+  /* Soft purples — quotation, vision, body accent */
+  --color-quote-violet:  #AEA1FF;            /* "View more" link / vision tint 1 */
+  --color-quote-pink:    #BFA0FF;            /* vision italic block 1 */
+  --color-quote-pinker:  #E1A0FF;            /* vision italic block 2 */
+  --color-quote-soft:    #C7A7FF;
+  --color-quote-blue:    #8EA7FF;
+  --color-quote-rose:    #F8A7FF;
+  --color-text-on-glow:  #DCDEFF;            /* hero subtitle */
+  --color-text-on-glow-2:#E5E6FF;            /* deck title subtitle */
+
+  /* Neutral grays (UI chrome) */
+  --color-line:          rgba(255,255,255,0.16);
+  --color-line-strong:   rgba(255,255,255,0.28);
+  --color-line-light:    rgba(0,0,0,0.14);
+  --color-line-input:    #C4C4C4;            /* dashed dropzone */
+  --color-line-border:   #E3E3E3;            /* light input border */
+  --color-gray-700:      #5F6368;            /* Inter UI gray */
+  --color-gray-500:      #93A0A8;
+  --color-gray-300:      #AAABB3;
+  --color-gray-100:      #DEE1E6;
+  --color-gray-50:       #F1F3F4;            /* address bar */
+
+  /* Glow / radial blur tints (the dominant atmospheric motif) */
+  --glow-blue:           rgba( 79, 75,255,0.24);
+  --glow-blue-soft:      rgba( 70, 79,255,0.23);
+  --glow-pink:           rgba(219, 75,255,0.16);
+  --glow-violet-bright:  rgba(191,111,255,0.35);
+
+  /* Glass card (testimonial container) */
+  --glass-top:           rgba( 33, 26, 61, 0.80);
+  --glass-mid-dark:      rgba( 15,  2, 25, 0.80);
+  --glass-mid-light:     rgba( 41, 35, 67, 0.80);
+
+  /* ---------------- SEMANTIC ALIASES ---------------- */
+  --bg:        var(--color-bg);
+  --bg-alt:    var(--color-bg-deep);
+  --surface:   var(--color-bg-elevated);
+  --fg1:       var(--color-fg);
+  --fg2:       var(--color-fg-dim);
+  --fg3:       var(--color-fg-muted);
+  --brand:     var(--color-brand-violet);
+  --link:      var(--color-quote-violet);
+  --hairline:  var(--color-line);
+
+  /* ---------------- TYPE ---------------- */
+  --font-sans:    "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Poppins", system-ui, -apple-system, sans-serif;
+  --font-mark:    "Montserrat Alt1", "Montserrat", system-ui, sans-serif; /* TELEPAT wordmark */
+  --font-ui:      "Inter", system-ui, -apple-system, sans-serif; /* browser chrome / micro-UI */
+
+  /* Type ramp — pulled directly from Figma usage counts */
+  --fs-hero:          86px;   /* deck title */
+  --fs-display:       64px;   /* landing hero H1 (1280 viewport) */
+  --fs-h1:            60px;   /* deck section headers */
+  --fs-h2:            40px;   /* section titles (Services / Customers / etc.) */
+  --fs-h3:            32px;   /* sub-section, name + "Roy Smart" */
+  --fs-h4:            24px;   /* hero subtitle, vision-ish */
+  --fs-quote:         28px;   /* italic testimonial body */
+  --fs-vision:        41px;   /* deck vision italic */
+  --fs-body-lg:       20px;
+  --fs-body:          18px;   /* core body — most common */
+  --fs-body-sm:       16px;   /* cards, list copy */
+  --fs-meta:          14px;   /* eyebrow, "View more" */
+  --fs-micro:         12px;
+
+  --lh-tight:     1.00;
+  --lh-display:   1.10;        /* 96/86 ≈ 1.12 */
+  --lh-snug:      1.25;
+  --lh-body:      1.50;        /* 24/16, 27/18 */
+  --lh-loose:     1.75;
+
+  /* Tracking — Telepat leans on small positive tracking on display + nav */
+  --tracking-tight:   0;
+  --tracking-display: 0.020em;  /* default for most display copy */
+  --tracking-section: 0.040em;  /* "Services" / "Get in touch" titles */
+  --tracking-eyebrow: 0.100em;  /* "SELECTED CLIENTS" */
+  --tracking-wordmark:0.080em;  /* TELEPAT nav mark, "View more" */
+
+  /* ---------------- LAYOUT TOKENS ---------------- */
+  --radius-card:   16px;
+  --radius-pill:   500px;
+  --radius-button: 16px;
+  --radius-input:   8px;
+  --radius-tab:    "8px 8px 10px 10px";
+
+  /* Soft inner-blur halo on the page; widths echo the .fig (1329 / 894) */
+  --halo-radius-lg: 1329px;
+  --halo-radius-md:  894px;
+
+  /* Container widths */
+  --container-deck:    1920px;  /* 16:9 deck */
+  --container-site:    1280px;  /* landing viewport */
+  --container-content:  880px;  /* main copy column */
+
+  /* Spacing scale */
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:  16px;
+  --space-4:  24px;
+  --space-5:  32px;
+  --space-6:  48px;
+  --space-7:  56px;
+  --space-8:  72px;
+  --space-9: 100px;
+  --space-10:160px;
+}
+
+/* ============================================================
+ * Semantic element styles — apply directly to tags
+ * ============================================================ */
+
+html, body {
+  background: var(--bg);
+  color: var(--fg1);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--tracking-display);
+  margin: 0;
+}
+
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-section);
+  text-align: center;
+  margin: 0;
+}
+
+h3, .h3 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--fs-h3);
+  line-height: 1.25;
+  letter-spacing: var(--tracking-display);
+  margin: 0;
+}
+
+h4, .h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-h4);
+  line-height: 1.5;
+  letter-spacing: var(--tracking-section);
+  margin: 0;
+}
+
+p, .body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: var(--fs-body);
+  line-height: 1.45;
+  letter-spacing: var(--tracking-display);
+  margin: 0;
+}
+
+.eyebrow, .label-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-body-lg);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-fg-invert-q);
+}
+
+.wordmark, .nav-mark {
+  font-family: var(--font-mark);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wordmark);
+  text-transform: uppercase;
+}
+
+.quote, blockquote {
+  font-family: var(--font-sans);
+  font-style: italic;
+  font-weight: 300;
+  font-size: var(--fs-quote);
+  line-height: 1.36;
+  margin: 0;
+}
+
+.vision-italic {
+  font-family: var(--font-sans);
+  font-style: italic;
+  font-weight: 300;
+  font-size: var(--fs-vision);
+  text-align: center;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-display);
+  color: var(--color-quote-violet);
+}
+
+.link-more {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: var(--fs-meta);
+  letter-spacing: var(--tracking-wordmark);
+  color: var(--color-quote-violet);
+  text-decoration: none;
+}
+
+code, .mono {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: var(--fs-body-sm);
+}
+
+/* ============================================================
+ * Reusable atmospheric helpers
+ * ============================================================ */
+
+/* The signature "double-blur" backdrop: top-right blue + bottom-left pink */
+.glow-bg {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+.glow-bg::before,
+.glow-bg::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(0px); /* blur is implicit via large rgba radius — keep crisp circle */
+}
+.glow-bg::before {       /* upper-right blue */
+  width: 1329px; height: 1329px;
+  right: -200px; top: -480px;
+  background: var(--glow-blue);
+}
+.glow-bg::after {        /* lower-left pink */
+  width: 894px; height: 894px;
+  left: -276px; bottom: -276px;
+  background: var(--glow-pink);
+}

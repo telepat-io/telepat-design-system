@@ -1,0 +1,37 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_forms.css"><title>Toggle, slider &amp; tags</title></head>
+<body>
+<div class="specimen">
+
+  <div class="field">
+    <span class="field-label">Notifications</span>
+    <div class="toggle-row">
+      <div>
+        <div class="name">Status updates</div>
+        <div class="sub">Weekly progress email</div>
+      </div>
+      <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <span class="field-label">Team size</span>
+    <div class="slider-row">
+      <input type="range" min="1" max="50" value="14" class="slider" oninput="this.nextElementSibling.textContent = this.value">
+      <span class="val">14</span>
+    </div>
+  </div>
+
+  <div class="field full">
+    <span class="field-label">Industries</span>
+    <div class="chips">
+      <button type="button" class="chip on" onclick="this.classList.toggle('on')">Fintech</button>
+      <button type="button" class="chip on" onclick="this.classList.toggle('on')">Media</button>
+      <button type="button" class="chip"    onclick="this.classList.toggle('on')">Retail</button>
+      <button type="button" class="chip"    onclick="this.classList.toggle('on')">Health</button>
+      <button type="button" class="chip"    onclick="this.classList.toggle('on')">Logistics</button>
+      <button type="button" class="chip"    onclick="this.classList.toggle('on')">Public sector</button>
+    </div>
+  </div>
+
+</div>
+</body></html>

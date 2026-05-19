@@ -1,0 +1,19 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+.dots { display: flex; gap: 24px; align-items: center; }
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.32);
+  transition: background 200ms ease;
+}
+.dot:hover { background: rgba(255, 255, 255, 0.55); }
+.dotActive { background: #fff; }

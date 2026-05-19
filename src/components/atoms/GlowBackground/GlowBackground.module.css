@@ -1,0 +1,29 @@
+.root {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+.root::before,
+.root::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+.blue::before {
+  width: var(--halo-radius-lg);
+  height: var(--halo-radius-lg);
+  right: -200px;
+  top: -480px;
+  background: var(--glow-blue);
+}
+.magenta::after {
+  width: var(--halo-radius-md);
+  height: var(--halo-radius-md);
+  left: -276px;
+  bottom: -276px;
+  background: var(--glow-pink);
+}
+.root > * { position: relative; z-index: 1; }

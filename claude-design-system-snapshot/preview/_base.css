@@ -1,0 +1,42 @@
+/* Shared base for preview cards. Each card uses minimal chrome. */
+@import url("../colors_and_type.css");
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg1);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+.card {
+  width: 700px;
+  box-sizing: border-box;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card.light  { background: #FFFFFF; color: #000; }
+.card.deep   { background: var(--color-bg-deep); color: var(--fg1); }
+.card.black  { background: #000; color: var(--fg1); }
+
+.row    { display: flex; flex-direction: row;  gap: 16px; align-items: center; }
+.col    { display: flex; flex-direction: column; gap: 16px; }
+.wrap   { display: flex; flex-wrap: wrap; gap: 12px; }
+.between{ display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.fill   { flex: 1; min-width: 0; }
+
+.tinytag {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-fg-muted);
+  text-transform: uppercase;
+}
+.tinytag.dark { color: rgba(0,0,0,0.5); }
+.mono { font-family: ui-monospace, Menlo, monospace; font-size: 12px; }
