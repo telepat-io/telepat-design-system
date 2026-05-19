@@ -2,7 +2,10 @@ src/
 .storybook/
 storybook-static/
 node_modules/
+scripts/
 *.log
 tsconfig*.json
 vite.config.ts
 .gitignore
+CLAUDE.md
+AGENTS.md

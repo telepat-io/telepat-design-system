@@ -8,7 +8,8 @@
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "sideEffects": [
     "**/*.css"
@@ -30,6 +31,10 @@
     "./package.json": "./package.json"
   },
   "scripts": {
+    "fetch-fonts": "node scripts/fetch-fonts.mjs",
+    "predev": "npm run fetch-fonts",
+    "prebuild": "npm run fetch-fonts",
+    "prebuild-storybook": "npm run fetch-fonts",
     "dev": "storybook dev -p 6006",
     "build": "tsc -p tsconfig.build.json && vite build",
     "build-storybook": "storybook build",
@@ -68,5 +73,5 @@
     "components",
     "ui-library"
   ],
-  "license": "UNLICENSED"
+  "license": "MIT"
 }

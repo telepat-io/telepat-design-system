@@ -4,3 +4,12 @@ storybook-static/
 .DS_Store
 *.log
 .vite/
+
+# Fonts are fetched on demand via `npm run fetch-fonts`. The downloaded files
+# come from the official Google Fonts repository (Montserrat Alternates, SIL
+# OFL 1.1) — they are not committed to keep the source tree clean and free
+# of any specific font-distribution license obligations beyond the OFL.txt
+# that travels with the fetched files.
+src/fonts/*.ttf
+src/fonts/*.otf
+src/fonts/OFL.txt

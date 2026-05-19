@@ -14,6 +14,7 @@ Guidance for AI coding agents working in this repository. Skim the whole file be
 
 ```bash
 npm install
+npm run fetch-fonts      # downloads Montserrat Alternates (OFL 1.1) into src/fonts/
 npm run dev              # Storybook dev server at :6006
 npm run typecheck        # tsc --noEmit
 npm run build            # tsc -p tsconfig.build.json && vite build → dist/
@@ -21,6 +22,8 @@ npm run build-storybook  # static Storybook → storybook-static/
 ```
 
 Run `npm run typecheck` and `npm run build` before declaring work done. The Vite build emits ESM, CJS, `.d.ts`, hashed image assets, fonts, and CSS — `npm run build` is the integration test.
+
+**Fonts are not committed.** `src/fonts/*.ttf` and `src/fonts/OFL.txt` are `.gitignore`d. The `fetch-fonts` script downloads them from the official Google Fonts repository on demand and runs automatically as a `pre*` hook for `dev`, `build`, and `build-storybook`. If you're working offline, drop your own Montserrat-family TTFs in `src/fonts/` named `MontserratAlt1-<Weight>.ttf` and the script will skip the download.
 
 ## Project layout
 
@@ -175,3 +178,9 @@ The original design handoff bundle is the source of truth for visual decisions. 
 - `ui_kits/site/*.jsx` — the section components in Babel-loaded prototype form
 
 If the bundle isn't extracted, the bundled handoff is at `https://api.anthropic.com/v1/design/h/WBd-gwCdJmejSrjb8NOCQQ` (gzip tarball).
+
+## Licensing — what to know before touching it
+
+- The repo is **MIT** (`LICENSE` at the root). Don't add code under a more restrictive license without flagging it.
+- The font is **SIL OFL 1.1** (`src/fonts/OFL.txt` after `fetch-fonts` runs). Don't commit `.ttf` files — they're gitignored. The OFL travels with the fonts into `dist/fonts/OFL.txt` so consumers always get attribution.
+- Brand assets in `src/assets/` are Telepat's property and ship for design-reference purposes only. If you swap them for new generative imagery during development, note the substitution.

@@ -79,7 +79,9 @@ export function App() {
 
 ### Fonts
 
-The library bundles **Montserrat Alt1** (the TELEPAT wordmark face). **Poppins** must be loaded by the host application — typically via Google Fonts:
+The library bundles a **Montserrat Alternates** family (renamed to "Montserrat Alt1" internally so consumers don't have to swap a CSS variable) for the TELEPAT wordmark. It's licensed under [**SIL OFL 1.1**](./src/fonts/OFL.txt) and bundled in `dist/fonts/` along with its `OFL.txt`.
+
+**Poppins** must be loaded by the host application — typically via Google Fonts:
 
 ```html
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap">
@@ -128,11 +130,14 @@ See `src/styles/tokens.css` for the full token set.
 
 ```bash
 npm install
+npm run fetch-fonts      # download Montserrat Alternates (OFL 1.1) into src/fonts/
 npm run dev              # Storybook at http://localhost:6006
 npm run build            # build the library to dist/
 npm run build-storybook  # static Storybook to storybook-static/
 npm run typecheck
 ```
+
+`fetch-fonts` is idempotent and auto-runs before `dev` / `build` / `build-storybook` via npm `pre*` hooks, so the explicit invocation above is only needed once after a fresh clone — or never, if you're fine with the auto-run.
 
 Storybook is the source of truth for browsing every component, every state, and every foundation specimen (Colors / Typography / Spacing / Brand).
 
@@ -153,8 +158,13 @@ For contributor / agent guidance, see [AGENTS.md](./AGENTS.md).
 
 ---
 
+## License & attribution
+
+- **Source code, configuration, stories, and CSS Modules** in this repository are licensed under the [MIT License](./LICENSE).
+- **Fonts.** This repo fetches **Montserrat Alternates** (Copyright 2011 The Montserrat Project Authors, <https://github.com/JulietaUla/Montserrat>) from the official [Google Fonts repository](https://github.com/google/fonts/tree/main/ofl/montserratalternates) on demand via `npm run fetch-fonts`. The font is distributed under the [SIL Open Font License 1.1](https://openfontlicense.org/) and `OFL.txt` ships alongside it in `dist/fonts/` so consumers receive attribution automatically. The original Telepat design specifies the commercial "Montserrat Alt1" variant; Alternates is the closest freely-redistributable family member. If you have an Alt1 license, drop the files into `src/fonts/` named `MontserratAlt1-<Weight>.ttf` and the fetch script will preserve them.
+- **Brand assets** (logos, hero/vision imagery, service photography, use-case photo pairs) in `src/assets/` are property of Telepat (telepat.io). They're included as design references — **replace before any production use**.
+
 ## Caveats
 
 - Client logos in `ClientGrid` are styled-type approximations of T-Mobile, Microsoft, ProSiebenSat.1, Viasat, RH, PagerDuty, Honda, eightTV. Replace with licensed SVGs in production.
-- Montserrat Alt1 is licensed — confirm redistribution rights before publishing publicly.
 - Hover and press states are extrapolated defaults (not in the source Figma). Adjust to taste.
