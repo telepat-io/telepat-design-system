@@ -216,5 +216,4 @@ You can also edit `.release-please-manifest.json` directly in a PR — release-p
 
 ## Caveats
 
-- Client logos in `ClientGrid` are styled-type approximations of T-Mobile, Microsoft, ProSiebenSat.1, Viasat, RH, PagerDuty, Honda, eightTV. Replace with licensed SVGs in production.
 - Hover and press states are extrapolated defaults (not in the source Figma). Adjust to taste.
