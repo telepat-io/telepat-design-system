@@ -12,9 +12,12 @@
 
 <table>
   <tr>
-    <td width="33%" align="center" bgcolor="#000000">
-      <img src="./src/assets/logo-mark-gradient-baked.svg" alt="Mark" width="120" /><br/>
-      <sub><b>Logomark</b><br/>pink → magenta gradient</sub>
+    <td width="33%" align="center">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="./src/assets/logo-mark-white.svg" />
+        <img src="./src/assets/logo-mark-black.svg" alt="Telepat logomark" width="120" />
+      </picture><br/>
+      <sub><b>Logomark</b><br/>the spiral glyph</sub>
     </td>
     <td width="33%" align="center">
       <img src="./src/assets/hero-bg.png" alt="Hero topographic backdrop" width="100%" /><br/>
@@ -42,14 +45,14 @@
   </tr>
 </table>
 
-### Brand color pair
+### Surface pairs
 
-| | | |
-|---|---|---|
-| ![#4F4BFF](https://placehold.co/120x60/4F4BFF/4F4BFF.png) | ![#DB4BFF](https://placehold.co/120x60/DB4BFF/DB4BFF.png) | ![#5A3ECC](https://placehold.co/120x60/5A3ECC/5A3ECC.png) |
-| `#4F4BFF` electric blue | `#DB4BFF` magenta | `#5A3ECC` violet CTA |
+| | | | | |
+|---|---|---|---|---|
+| ![#000000](https://placehold.co/120x60/000000/000000.png) | ![#14102B](https://placehold.co/120x60/14102B/14102B.png) | ![#221949](https://placehold.co/120x60/221949/221949.png) | ![#FFFFFF](https://placehold.co/120x60/FFFFFF/FFFFFF.png) | ![#F6F6F6](https://placehold.co/120x60/F6F6F6/F6F6F6.png) |
+| `#000000` bg | `#14102B` bg-deep | `#221949` bg-elevated | `#FFFFFF` bg-light | `#F6F6F6` bg-light-soft |
 
-The electric-blue / magenta pair drives every dark surface — large translucent disks bleed off the top-right and bottom-left corners. No `filter: blur()` — just big translucent circles.
+Telepat is **dark-first** — roughly 80% of the deck and the entire site live on `#000` or `#14102B`. White appears only as the right pane of split-screen deck slides; `#F6F6F6` is reserved for use-case photo tiles. There are no mid-gray surfaces — the system is binary.
 
 ---
 
