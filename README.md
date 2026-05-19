@@ -58,14 +58,33 @@ Telepat is **dark-first** — roughly 80% of the deck and the entire site live o
 
 ## Quick start
 
+The package is published to the **GitHub Packages** npm registry under the `@telepat-io` scope. GitHub Packages requires authentication for all installs — including from public repositories — so consumers need a Personal Access Token before `npm install` will work.
+
+### 1. Create a Personal Access Token
+
+Generate a token at <https://github.com/settings/tokens/new> with the **`read:packages`** scope. Classic PATs work; fine-grained PATs also work if the token grants "Packages: read" on the `telepat-io` organization.
+
+### 2. Configure your project's `.npmrc`
+
+Add to `.npmrc` at the root of your project (or `~/.npmrc` for global access):
+
+```
+@telepat-io:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
+Export `GITHUB_TOKEN` in your shell (`export GITHUB_TOKEN=ghp_...`) or hard-code the token directly in `.npmrc` if you understand the trade-off.
+
+### 3. Install and use
+
 ```bash
-npm install telepat-design-system
+npm install @telepat-io/telepat-design-system
 ```
 
 ```tsx
-import "telepat-design-system/styles.css";
-import { Button, TextInput, Nav, TestimonialCard } from "telepat-design-system";
-import { Hero, ContactSection } from "telepat-design-system/sections";
+import "@telepat-io/telepat-design-system/styles.css";
+import { Button, TextInput, Nav, TestimonialCard } from "@telepat-io/telepat-design-system";
+import { Hero, ContactSection } from "@telepat-io/telepat-design-system/sections";
 
 export function App() {
   return (
@@ -107,10 +126,10 @@ Sections are published under a **separate entry point** (`telepat-design-system/
 
 ```tsx
 // Atoms / molecules only — tiny bundle (~12 kB ESM + tokens)
-import { Button } from "telepat-design-system";
+import { Button } from "@telepat-io/telepat-design-system";
 
 // Adds page-level sections + their imagery
-import { Hero } from "telepat-design-system/sections";
+import { Hero } from "@telepat-io/telepat-design-system/sections";
 ```
 
 ---
@@ -155,6 +174,37 @@ Storybook is the source of truth for browsing every component, every state, and 
 - `vite.config.ts` — library build (ESM + CJS + d.ts, two entry points)
 
 For contributor / agent guidance, see [AGENTS.md](./AGENTS.md).
+
+---
+
+## Contributing — releases and commit messages
+
+This repo uses [**release-please**](https://github.com/googleapis/release-please) to automate versioning, changelog generation, and publishing to GitHub Packages. Versioning is driven entirely by commit messages, so commits to `main` must follow the [**Conventional Commits**](https://www.conventionalcommits.org/) format.
+
+| Commit prefix | Version bump | Use for |
+|---|---|---|
+| `fix:` | patch (1.0.0 → 1.0.1) | bug fixes |
+| `feat:` | minor (1.0.0 → 1.1.0) | new components, new exports, additive features |
+| `feat!:` or `BREAKING CHANGE:` footer | major (1.0.0 → 2.0.0) | breaking API or visual changes |
+| `chore:` / `docs:` / `refactor:` / `ci:` / `style:` / `test:` | no release | maintenance work |
+
+### How a release happens
+
+1. You merge a PR into `main` with a Conventional Commit message.
+2. The release workflow opens (or updates) a single **Release PR** titled `chore(main): release <version>` that bumps `package.json` + writes the CHANGELOG.
+3. When you're ready to ship, merge the Release PR. The publish workflow then tags the commit `v<version>`, creates a GitHub Release, and pushes the package to GitHub Packages.
+
+### Forcing a specific version
+
+To force the next release to a specific version (e.g., a deliberate major bump regardless of commit types), add a footer to any commit:
+
+```
+chore: prepare 2.0.0
+
+Release-As: 2.0.0
+```
+
+You can also edit `.release-please-manifest.json` directly in a PR — release-please respects whatever version is there.
 
 ---
 
