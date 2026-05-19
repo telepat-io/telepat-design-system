@@ -1,7 +1,7 @@
 {
   "name": "@telepat-io/telepat-design-system",
   "version": "1.0.0",
-  "description": "Telepat brand design system — React component library with Storybook",
+  "description": "Telepat brand design system — React component library with Storybook built by Claude Design",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
