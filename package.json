@@ -89,8 +89,7 @@
     "react",
     "storybook",
     "components",
-    "ui-library",
-    "css"
+    "ui-library"
   ],
   "license": "MIT"
 }
